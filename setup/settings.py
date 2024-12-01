@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'apps.api.apps.ApiConfig',
-    'apps.paginas.apps.PaginasConfig',
+    'apps.manager.apps.ManagerConfig',
 ]
 
 MIDDLEWARE = [

@@ -14,3 +14,19 @@ class Cliente(models.Model):
 class Mensagem(models.Model):
     data = models.DateField(auto_now_add=True)
     mensagem = models.CharField(max_length=1000)
+    
+
+    def __str__(self):
+        return self.mensagem
+    
+class EnviarMensagem(models.Model):
+
+    STATUS = [
+        ('success', 'Sucesso'),
+        ('error', 'Erro')
+    ]
+    data = models.DateField(auto_now_add=True)
+    mensagem = models.ForeignKey(Mensagem, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    status = models.CharField(max_length=10, choices=STATUS, default='success')
+    resposta = models.TextField(blank=True, null=True)
